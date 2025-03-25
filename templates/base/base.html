@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/fav-icon.png' %}" style="width: 32px; height: 32px">
+
+
+</head>
+<body>
+
+<div class="site">
+
+    <header>
+
+        {% include 'base/header/header.html' %}
+
+    </header>
+
+    <main>
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+    <footer>
+
+        {% include 'base/footer/footer.html' %}
+
+    </footer>
+
+    {% block scripts %}
+
+    {% endblock %}
+
+</div>
+
+</body>
+</html>

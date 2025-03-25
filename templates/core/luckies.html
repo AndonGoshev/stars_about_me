@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+	Зодиакални късмети
+{% endblock %}
+
+{% block content %}
+	
+    <div> we are in the page for the luckies</div>
+    
+    
+  <h2>Choose Your Zodiac Sign</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- Render form fields -->
+    <button type="submit">Generate Lucky Message</button>
+  </form>
+    
+{% endblock %}
