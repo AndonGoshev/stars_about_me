@@ -18,6 +18,15 @@
 
 <div class="site">
 
+<video autoplay muted loop id="bg-video">
+    <source src="{% static 'images/bg-video1.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<div class="site">
+    <!-- Your existing content -->
+</div>
+
     <header>
 
         {% include 'base/header/header.html' %}
@@ -45,3 +54,28 @@
 
 </body>
 </html>
+
+<style>
+    
+    {#.site {#}
+    {#    background-image: url("{% static 'images/main-bg.jpg' %}");#}
+    {#    background-position: bottom;#}
+    {#    background-size: cover;#}
+    
+    #bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place it behind everything */
+        opacity: 1;
+}
+
+.site {
+    position: relative;
+    z-index: 1; /* Ensures content is above the video */
+}
+    
+</style>

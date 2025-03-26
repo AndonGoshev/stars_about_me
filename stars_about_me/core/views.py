@@ -64,7 +64,7 @@ class QRCodeDetailView(DetailView):
                 context['element'] = elements_bg[qr_code.linked_lucky.element]
 
             else:
-                template = 'core/lucky.html'  # Default template if no type matches
+                template = 'core/luckies.html'  # Default template if no type matches
 
             return render(request, template, context)
 

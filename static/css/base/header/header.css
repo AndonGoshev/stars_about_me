@@ -1,0 +1,27 @@
+header {
+    width: 100%;
+    padding: 1em 4.2em;
+    /*background-color: #F9F7F7;*/
+}
+
+#header-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5em;
+}
+
+
+@media (max-width: 1200px) {
+    header {
+        padding: 0.5em 2em;
+    }
+}
+
+@media (max-width: 570px) {
+    header {
+        padding: 0.5em 2em;
+    }
+}
+

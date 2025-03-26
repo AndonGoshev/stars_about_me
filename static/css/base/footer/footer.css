@@ -1,0 +1,101 @@
+footer {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    padding: 2em 1em 1em 1em;
+}
+
+#footer-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+}
+
+#footer-first-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+#footer-left-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#f-logo {
+    width: 8em;
+    background-color: #ffffff;
+    padding: 0.2em;
+    border-radius: 5px;
+}
+
+#f-logo img {
+    width: 100%;
+}
+
+#footer-right-nav {
+    width: 100%;
+    display: flex;
+    gap: 3em;
+    justify-content: center;
+}
+
+#footer-right-nav a {
+    color: #8a8a8a;
+    text-decoration: none;
+}
+
+#footer-right-nav a img {
+    vertical-align: middle;
+    width: 2em;
+    height: 1.8em;
+    margin-right: 0.5em;
+}
+
+#footer-second-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#footer-second-row p {
+    color: #fff;
+}
+
+
+@media (max-width: 570px) {
+
+    #footer-left-nav {
+        justify-content: flex-start;
+    }
+
+    #f-logo {
+        width: 5em;
+    }
+
+    #footer-right-nav {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    #footer-right-nav a {
+        font-size: 0.8em;
+    }
+
+    #footer-right-nav a img {
+        width: 1.5em;
+    }
+
+    #footer-second-row p {
+        font-size: 0.5em;
+    }
+
+}

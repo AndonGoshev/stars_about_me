@@ -6,160 +6,172 @@
 {% endblock %}
 
 {% block content %}
-    <div>We are in the page for the luckies</div>
-    
-    <h2>Choose Your Zodiac Sign</h2>
-    
-    <form id="luckyForm" method="POST">
-        {% csrf_token %}
+    <div id="luckies-wrapper">
+        
+        <h1>Зодиакални късмети</h1>
 
-        <!-- Zodiac Sign Selection rendered via RadioSelect -->
-        <div class="zodiac-sign-container">
-            {% for field in form %}
-                {% if field.name == 'zodiac_sign' %}
-                    {% for subfield in field %}
-                        <div class="zodiac-sign">
-                            <label for="{{ subfield.id_for_label }}" class="circle-label">
-                                <div class="circle">
-                                    <p>{{ subfield.choice_label }}</p>
-                                </div>
-                            </label>
-                            {{ subfield }}  <!-- This renders the radio input -->
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            {% endfor %}
-        </div>
+        <form id="luckyForm" method="POST">
+            {% csrf_token %}
+            
+            <h2>Изберете вашата зодия</h2>
 
-        <!-- Lucky Type Selection (Initially hidden) -->
-        <div id="luckyTypeContainer" style="display:none;">
-            <div class="form-group">
-                <label for="id_lucky_type" id="luckyTypeLabel">Choose your Lucky Type:</label>
-                {{ form.lucky_type }}
+            <!-- Zodiac Sign Selection rendered via RadioSelect -->
+            <div class="zodiac-signs-container">
+
+                <label class="zodiac-sign" id="aries-choice" for="{{ form.zodiac_signs.aries.id_for_label }}">
+                    <div class="sign-image"><img src="{% static 'images/aries.png' %}" alt="Овен"></div>
+                    {{ form.zodiac_signs.aries }}
+                    <p class="sign-date">(25.15 - 15.32)</p>
+                </label>
+
+                <label class="zodiac-sign" id="taurus-choice" for="{{ form.zodiac_signs.taurus.id_for_label }}">
+                    <div class="sign-image"><img src="{% static 'images/taurus.png' %}" alt="Телец"></div>
+                    {{ form.zodiac_signs.taurus }}
+                    <p class="sign-date">(25.15 - 15.32)</p>
+                </label>
+
+                <label class="zodiac-sign" id="gemini-choice" for="{{ form.zodiac_signs.gemini.id_for_label }}">
+                    <div class="sign-image"><img src="{% static 'images/gemini.png' %}" alt="Близнаци"></div>
+                    {{ form.zodiac_signs.gemini }}
+                    <p class="sign-date">(25.15 - 15.32)</p>
+                </label>
+
+                <label class="zodiac-sign" id="cancer-choice" for="{{ form.zodiac_signs.cancer.id_for_label }}">
+                    <div class="sign-image"><img src="{% static 'images/cancer.png' %}" alt="Рак"></div>
+                    {{ form.zodiac_signs.cancer }}
+                    <p class="sign-date">(25.15 - 15.32)</p>
+                </label>
+
+                <label class="zodiac-sign" id="leo-choice" for="{{ form.zodiac_signs.leo.id_for_label }}">
+                    <div class="sign-image"><img src="{% static 'images/leo.png' %}" alt="Лъв"></div>
+                    {{ form.zodiac_signs.leo }}
+                    <p class="sign-date">(25.15 - 15.32)</p>
+                </label>
+
+                <label class="zodiac-sign" id="virgo-choice" for="{{ form.zodiac_signs.virgo.id_for_label }}">
+                    <div class="sign-image"><img src="{% static 'images/virgo.png' %}" alt="Дева"></div>
+                    {{ form.zodiac_signs.virgo }}
+                    <p class="sign-date">(25.15 - 15.32)</p>
+                </label>
+
+                <label class="zodiac-sign" id="libra-choice" for="{{ form.zodiac_signs.libra.id_for_label }}">
+                    <div class="sign-image"><img src="{% static 'images/libra.png' %}" alt="Везни"></div>
+                    {{ form.zodiac_signs.libra }}
+                    <p class="sign-date">(25.15 - 15.32)</p>
+                </label>
+
+                <label class="zodiac-sign" id="scorpio-choice" for="{{ form.zodiac_signs.scorpio.id_for_label }}">
+                    <div class="sign-image"><img src="{% static 'images/scorpio.png' %}" alt="Скорпион"></div>
+                    {{ form.zodiac_signs.scorpio }}
+                    <p class="sign-date">(25.15 - 15.32)</p>
+                </label>
+
+                <label class="zodiac-sign" id="sagittarius-choice"
+                       for="{{ form.zodiac_signs.sagittarius.id_for_label }}">
+                    <div class="sign-image"><img src="{% static 'images/sagittarius.png' %}" alt="Стрелец"></div>
+                    {{ form.zodiac_signs.sagittarius }}
+                    <p class="sign-date">(25.15 - 15.32)</p>
+                </label>
+
+                <label class="zodiac-sign" id="capricorn-choice" for="{{ form.zodiac_signs.capricorn.id_for_label }}">
+                    <div class="sign-image"><img src="{% static 'images/capricorn.png' %}" alt="Козирог"></div>
+                    {{ form.zodiac_signs.capricorn }}
+                    <p class="sign-date">(25.15 - 15.32)</p>
+                </label>
+
+                <label class="zodiac-sign" id="aquarius-choice" for="{{ form.zodiac_signs.aquarius.id_for_label }}">
+                    <div class="sign-image"><img src="{% static 'images/aquarius.png' %}" alt="Водолей"></div>
+                    {{ form.zodiac_signs.aquarius }}
+                    <p class="sign-date">(25.15 - 15.32)</p>
+                </label>
+
+                <label class="zodiac-sign" id="pisces-choice" for="{{ form.zodiac_signs.pisces.id_for_label }}">
+                    <div class="sign-image"><img src="{% static 'images/pisces.png' %}" alt="Риби"></div>
+                    {{ form.zodiac_signs.pisces }}
+                    <p class="sign-date">(25.15 - 15.32)</p>
+                </label>
+
             </div>
-        </div>
 
-        <!-- Initially hidden submit button -->
-        <button type="submit" id="submitBtn" style="display:none;">Submit</button>
-    </form>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Correct name: "zodiac_sign"
-        var zodiacRadioButtons = document.querySelectorAll('input[name="zodiac_sign"]');
-        var luckyTypeContainer = document.getElementById("luckyTypeContainer");
-        var submitButton = document.getElementById("submitBtn");
+            <!-- Lucky Type Selection (Initially hidden) -->
+            <div id="luckyTypeContainer" style="display:none;">
+                <div class="form-group">
+                    <label for="id_lucky_type" id="luckyTypeLabel">Choose your Lucky Type:</label>
+                    {{ form.lucky_type }}
+                </div>
+            </div>
 
-        // Initially hide lucky type container and submit button
-        if(luckyTypeContainer) luckyTypeContainer.style.display = "none";
-        if(submitButton) submitButton.style.display = "none";
+            <!-- Initially hidden submit button -->
+            <button type="submit" id="submitBtn" style="display:none;">Submit</button>
+        </form>
 
-        // When a zodiac sign is selected, show the lucky type container
-        zodiacRadioButtons.forEach(function(radioButton) {
-            radioButton.addEventListener("change", function() {
-                if(this.checked) {
-                    luckyTypeContainer.style.display = "block";
-                    // Optionally, if lucky type is already selected, show submit button immediately:
-                    var luckyTypeSelect = document.getElementById("id_lucky_type");
-                    if(luckyTypeSelect && luckyTypeSelect.value) {
+
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Correct name: "zodiac_sign"
+            var zodiacRadioButtons = document.querySelectorAll('input[name="zodiac_sign"]');
+            var luckyTypeContainer = document.getElementById("luckyTypeContainer");
+            var submitButton = document.getElementById("submitBtn");
+
+            // Initially hide lucky type container and submit button
+            if (luckyTypeContainer) luckyTypeContainer.style.display = "none";
+            if (submitButton) submitButton.style.display = "none";
+
+            // When a zodiac sign is selected, show the lucky type container
+            zodiacRadioButtons.forEach(function (radioButton) {
+                radioButton.addEventListener("change", function () {
+                    if (this.checked) {
+                        luckyTypeContainer.style.display = "block";
+                        // Optionally, if lucky type is already selected, show submit button immediately:
+                        var luckyTypeSelect = document.getElementById("id_lucky_type");
+                        if (luckyTypeSelect && luckyTypeSelect.value) {
+                            submitButton.style.display = "block";
+                        }
+                    }
+                });
+            });
+
+            // When a lucky type is selected, show the submit button if a zodiac sign is also selected.
+            var luckyTypeSelect = document.getElementById("id_lucky_type");
+            if (luckyTypeSelect) {
+                luckyTypeSelect.addEventListener("change", function () {
+                    if (document.querySelector('input[name="zodiac_sign"]:checked') && luckyTypeSelect.value) {
                         submitButton.style.display = "block";
                     }
-                }
-            });
-        });
-
-        // When a lucky type is selected, show the submit button if a zodiac sign is also selected.
-        var luckyTypeSelect = document.getElementById("id_lucky_type");
-        if(luckyTypeSelect) {
-            luckyTypeSelect.addEventListener("change", function() {
-                if(document.querySelector('input[name="zodiac_sign"]:checked') && luckyTypeSelect.value) {
-                    submitButton.style.display = "block";
-                }
-            });
-        }
-
-        // Translation map from English to Bulgarian
-        const zodiacTranslations = {
-            'Aries': 'Овен',
-            'Taurus': 'Телец',
-            'Gemini': 'Близнаци',
-            'Cancer': 'Рак',
-            'Leo': 'Лъв',
-            'Virgo': 'Дева',
-            'Libra': 'Везни',
-            'Scorpio': 'Скорпион',
-            'Sagittarius': 'Стрелец',
-            'Capricorn': 'Козирог',
-            'Aquarius': 'Водолей',
-            'Pisces': 'Риби'
-        };
-
-        // Update the text inside the circles to show Bulgarian names
-        const zodiacLabels = document.querySelectorAll('.zodiac-sign .circle-label p');
-        zodiacLabels.forEach(function(labelElement) {
-            const englishName = labelElement.innerText.trim();
-            const bulgarianName = zodiacTranslations[englishName];
-            if (bulgarianName) {
-                labelElement.innerText = bulgarianName;
+                });
             }
+
+            // Translation map from English to Bulgarian
+            const zodiacTranslations = {
+                'Aries': 'Овен',
+                'Taurus': 'Телец',
+                'Gemini': 'Близнаци',
+                'Cancer': 'Рак',
+                'Leo': 'Лъв',
+                'Virgo': 'Дева',
+                'Libra': 'Везни',
+                'Scorpio': 'Скорпион',
+                'Sagittarius': 'Стрелец',
+                'Capricorn': 'Козирог',
+                'Aquarius': 'Водолей',
+                'Pisces': 'Риби'
+            };
+
+            // Update the text inside the circles to show Bulgarian names
+            const zodiacLabels = document.querySelectorAll('.zodiac-sign .circle-label p');
+            zodiacLabels.forEach(function (labelElement) {
+                const englishName = labelElement.innerText.trim();
+                const bulgarianName = zodiacTranslations[englishName];
+                if (bulgarianName) {
+                    labelElement.innerText = bulgarianName;
+                }
+            });
         });
-    });
-</script>
+    </script>
+{% endblock %}o %}
 
-<style>
-    .zodiac-sign-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-        justify-items: center;
-        padding: 20px;
-        margin-bottom: 20px;
-    }
-
-    .zodiac-sign {
-        text-align: center;
-    }
-
-    .circle {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        border: 2px solid #ccc;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #f0f0f0;
-        margin-bottom: 10px;
-        transition: border-color 0.3s ease;
-    }
-
-    .circle-label {
-        cursor: pointer;
-    }
-
-    /* Hide the radio input */
-    .zodiac-sign input[type="radio"] {
-        display: none;
-    }
-
-    /* Hover effect for circles */
-    .circle-label:hover .circle {
-        background-color: #ddd;
-    }
-
-    /* Mobile-first styling */
-    .zodiac-sign-container {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    @media (min-width: 600px) {
-        .zodiac-sign-container {
-            grid-template-columns: repeat(4, 1fr);
-        }
-    }
-</style>
-{% endblock %}
-
-{% block css %}
-{% endblock %}
