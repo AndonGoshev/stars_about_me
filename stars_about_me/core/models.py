@@ -9,6 +9,7 @@ class LuckyBase(models.Model):
     zodiac_sign = models.CharField(max_length=20, choices=ZodiacSigns.choices, null=True, blank=True)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
+    lucky_type = models.CharField(max_length=20, choices=LuckyTypeChoices.choices, null=True, blank=True)
 
     class Meta:
         abstract = True

@@ -12,5 +12,8 @@ class ZodiacSignForm(forms.Form):
         ('element', 'Element')
     ]
 
-    zodiac_sign = forms.ChoiceField(choices=ZODIAC_SIGNS)
+    zodiac_sign = forms.ChoiceField(
+        choices=ZODIAC_SIGNS,
+        widget=forms.RadioSelect(attrs={'class': 'zodiac-radio'})
+    )
     lucky_type = forms.ChoiceField(choices=LUCKY_TYPES)

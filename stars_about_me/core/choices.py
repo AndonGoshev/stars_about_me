@@ -3,7 +3,7 @@ from django.db import models
 
 class LuckyTypeChoices(models.TextChoices):
     quote = 'quote'
-    sign = 'sign'
+    wisdom = 'wisdom'
     element = 'element'
 
 
