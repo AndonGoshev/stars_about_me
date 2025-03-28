@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap');
+
 
 
 * {
@@ -9,7 +11,7 @@
 
 html, body {
     margin: 0 auto;
-    font: 18px/1.5  "Jost", sans-serif;
+    font: 18px/1.5   "Sofia Sans Condensed", sans-serif;
     min-height: 100%;
     scroll-behavior: smooth;
 }
