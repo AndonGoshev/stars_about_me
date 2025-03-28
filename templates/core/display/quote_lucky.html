@@ -1,7 +1,31 @@
 {% extends 'base/base.html' %}
+{% load static %}
 
 {% block content %}
-  <h2> famous people quotes</h2>
-  <p>{{ content }}</p>
-    <p> zodiqta e {{ zodiac_sign }}</p>
+
+    <div id="quote-wrapper">
+    
+        <h1>Зодиакални късмети</h1>
+        
+        <div id="sign-ct"><img src="{% static 'images/aries.png' %}"></div>
+
+        <div id="quote-ct">
+            
+            <div id="top-line"><img src="{% static 'images/divider.png' %}"></div>
+
+            <h2 id="quote">{{ content }}</h2>
+            <div id="testimonial">
+
+                <p id="author">{{ author }} <span>(Зодия {{ zodiac_sign }})</span></p>
+
+            </div>
+            
+            <div id="bottom-line"><img src="{% static 'images/divider.png' %}"></div>
+
+
+        </div>
+
+    </div>
+
+
 {% endblock %}

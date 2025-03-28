@@ -21,7 +21,6 @@ class QRCodeDetailView(DetailView):
         if qr_code.scanned:
 
             lucky_type = qr_code.linked_lucky.lucky_type
-            print(lucky_type)
 
             zodiac_signs_bg = {
                 'Aries': 'Овен',
@@ -97,27 +96,24 @@ class QRCodeDetailView(DetailView):
             zodiac_sign = form.cleaned_data['zodiac_sign']
             lucky_type = form.cleaned_data['lucky_type']
 
-            print(lucky_type)
-            print(f'zodiac sign {zodiac_sign}')
-
             # Get lucky message based on selected zodiac sign and lucky type
             if lucky_type == 'quote':
                 lucky_messages = FamousQuoteLucky.objects.filter(zodiac_sign=zodiac_sign)
-                print(lucky_messages)
+
             elif lucky_type == 'wisdom':
-                print('we are in wisdom')
+
                 lucky_messages = WisdomLucky.objects.filter(zodiac_sign=zodiac_sign)
-                print(lucky_messages)
+
             elif lucky_type == 'element':
 
 
                 element = next((key for key, signs in ELEMENT_ZODIAC_SIGNS.items() if zodiac_sign in signs), None)
 
-                print(element)
+
 
                 lucky_messages = ElementLucky.objects.filter(element=element)
 
-                print(lucky_messages)
+
 
             else:
                 raise Http404("Lucky type not found.")
@@ -128,7 +124,7 @@ class QRCodeDetailView(DetailView):
                 qr_code.linked_lucky = lucky
                 qr_code.scanned = True
                 qr_code.save()
-                print(lucky_type)
+
 
                 return redirect('get_lucky', qr_id=qr_code.qr_id)
 

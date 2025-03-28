@@ -1,24 +1,25 @@
 #luckies-wrapper {
+    margin-top: 1em;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#heading-ct {
-    position: relative;
-    width: 100%;
-    height: 4em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 50px;
-    overflow: hidden;
-    box-shadow: inset 0 5px 5px rgba(133, 129, 129, 1);
-    border: 3px solid #e4e4e4;
-}
+/*#heading-ct {*/
+/*    position: relative;*/
+/*    width: 100%;*/
+/*    height: 4em;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    background-color: rgba(255, 255, 255, 0.8);*/
+/*    border-radius: 50px;*/
+/*    overflow: hidden;*/
+/*    box-shadow: inset 0 5px 5px rgba(133, 129, 129, 1);*/
+/*    border: 3px solid #e4e4e4;*/
+/*}*/
 
 #heading-ct img {
     position: absolute;
@@ -28,15 +29,16 @@
     opacity: 0.8;
 }
 
-#luckies-wrapper h1, #luckies-wrapper h2 {
-    color: #4a4a4a;
+#luckies-wrapper h2 {
+    color: rgba(255, 255, 255, 0.8);
     font-weight: 400;
     font-size: 1.5em;
 }
 
 #heading-ct h1 {
     z-index: 1;
-    color: #A48385;
+    /*color: #A48385;*/
+    text-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
 }
 
 #luckies-wrapper h2 {
@@ -48,7 +50,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1em;
+    gap: 2em;
 }
 
 #zodiac-sign-form-ct {
@@ -79,7 +81,7 @@
     padding: 0.5em 0.3em;
 
 
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 16px;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
@@ -165,7 +167,7 @@
     justify-content: center;
     width: 100%;
     height: 3em;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 25px;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.3);

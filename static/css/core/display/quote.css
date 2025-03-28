@@ -1,0 +1,81 @@
+#quote-wrapper {
+    flex-grow: 1;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    margin-top: 2em;
+}
+
+#quote-wrapper h1 {
+    text-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+}
+
+#sign-ct {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5em;
+
+
+    background: rgba(244, 244, 244, 0.9);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#sign-ct img {
+    width: 70%;
+    height: 70%;
+}
+
+#quote-ct {
+    width: 90%;
+    /*background-color: rgba(0, 0, 0, 0.5);*/
+    padding: 2em;
+
+
+    background: rgba(96, 96, 96, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#testimonial {
+    color: rgba(255, 255, 255, 1);
+    text-align: end;
+}
+
+#author span {
+    font-size: 0.8em;
+}
+
+
+#top-line, #bottom-line {
+    margin-left: 25%;
+    position: relative;
+    width: 50%;
+    height: 15px;
+}
+
+#top-line img, #bottom-line img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#top-line {
+    margin-bottom: 1.5em;
+}
+
+#bottom-line {
+    margin-top: 1.5em;
+}
