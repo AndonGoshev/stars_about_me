@@ -1,8 +1,31 @@
 {% extends 'base/base.html' %}
+{% load static %}
 
 {% block content %}
-  <h2> element quotes</h2>
-    <p>elementa e {{ element }}</p>
-  <p>{{ content }}</p>
-    <p>{{ qr_code }}</p>
+
+    <div id="element-wrapper">
+    
+        <h1>Зодиакални късмети</h1>
+        
+        <div id="element-img-ct"><img src="{% static 'images/' %}{{ element_eng|lower }}.jpg" alt="{{ zodiac_sign }}"></div>
+
+        <div id="element-ct">
+            
+            <div id="top-line"><img src="{% static 'images/divider.png' %}"></div>
+
+            <h2 id="element">{{ content }}</h2>
+            <div id="element-testimonial">
+
+                <p id="element-author">Стихия {{ element }}</p>
+
+            </div>
+            
+            <div id="bottom-line"><img src="{% static 'images/divider.png' %}"></div>
+
+
+        </div>
+
+    </div>
+
+
 {% endblock %}

@@ -47,10 +47,13 @@ class QRCodeDetailView(DetailView):
                 template = 'core/display/quote_lucky.html'
                 context['author'] = qr_code.linked_lucky.author
                 context['zodiac_sign'] = zodiac_signs_bg[qr_code.linked_lucky.zodiac_sign]
+                context['zodiac_sign_eng'] = qr_code.linked_lucky.zodiac_sign
+
 
             elif lucky_type == 'wisdom':
                 template = 'core/display/wisdom_lucky.html'
                 context['zodiac_sign'] = zodiac_signs_bg[qr_code.linked_lucky.zodiac_sign]
+                context['zodiac_sign_eng'] = qr_code.linked_lucky.zodiac_sign
 
             elif lucky_type == 'element':
                 elements_bg = {
@@ -61,6 +64,7 @@ class QRCodeDetailView(DetailView):
                 }
                 template = 'core/display/element_lucky.html'
                 context['element'] = elements_bg[qr_code.linked_lucky.element]
+                context['element_eng'] = qr_code.linked_lucky.element
 
             else:
                 template = 'core/luckies.html'  # Default template if no type matches
