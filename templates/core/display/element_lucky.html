@@ -4,23 +4,37 @@
 {% block content %}
 
     <div id="element-wrapper">
-    
+
         <h1>Зодиакални късмети</h1>
-        
-        <div id="element-img-ct"><img src="{% static 'images/' %}{{ element_eng|lower }}.jpg" alt="{{ zodiac_sign }}"></div>
+        <p>Стихия {{ element }}</p>
+
+        <div id="element-img-ct"><img src="{% static 'images/' %}{{ element_eng|lower }}.jpg" alt="{{ zodiac_sign }}">
+        </div>
 
         <div id="element-ct">
-            
-            <div id="top-line"><img src="{% static 'images/divider.png' %}"></div>
+
+            <div id="top-line-el"><img src="{% static 'images/divider.png' %}"></div>
 
             <h2 id="element">{{ content }}</h2>
-            <div id="element-testimonial">
+{#            <div id="element-testimonial">#}
+{##}
+{#                <p id="element-author">Стихия #}
+{##}
+{#                    {% if element == 'Огън' %}#}
+{#                        <span id="fire-el">{{ element }}</span>#}
+{#                    {% elif element == 'Вода' %}#}
+{#                        <span id="water-el">{{ element }}</span>#}
+{#                    {% elif element == 'Въздух' %}#}
+{#                        <span id="air-el">{{ element }}</span>#}
+{#                    {% elif element == 'Земя' %}#}
+{#                        <span id="earth-el">{{ element }}</span>#}
+{#                    {% endif %}#}
+{##}
+{#                </p>#}
+{##}
+{#            </div>#}
 
-                <p id="element-author">Стихия {{ element }}</p>
-
-            </div>
-            
-            <div id="bottom-line"><img src="{% static 'images/divider.png' %}"></div>
+            <div id="bottom-line-el"><img src="{% static 'images/divider.png' %}"></div>
 
 
         </div>

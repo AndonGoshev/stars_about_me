@@ -120,4 +120,4 @@ MEDIA_URL = '/media/'
 if not DEBUG:
     QR_BASE_URL = config('QR_BASE_URL')
 else:
-    QR_BASE_URL = 'localhost:8000'
+    QR_BASE_URL = 'starsaboutme.com'

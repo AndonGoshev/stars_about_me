@@ -123,8 +123,8 @@
 }
 
 .zodiac-sign:has(input[type="radio"]:checked) {
-    background-color: #e6dcd7; /* or any color/style you want for the selected state */
-    border: 1px solid #b6b6b6;
+    background: rgba(251, 243, 197, 0.5); /* or any color/style you want for the selected state */
+    /*border: 1px solid #b6b6b6;*/
 }
 
 
@@ -173,7 +173,6 @@
     font-size: 1em;
     color: #4a4a4a;
     cursor: pointer;
-    transition: background 0.3s ease, border 0.3s ease;
     text-align: center;
     vertical-align: middle;
 }
@@ -192,20 +191,21 @@
 
 /* Style when selected */
 .lucky-option input:checked + span {
+    all: unset;
     width: 100%;
     height: 3em;
     display: flex;
     flex-direction: column;
     justify-content: center;
-   background-color: #e6dcd7; /* or any color/style you want for the selected state */
-    border: 1px solid #b6b6b6;
+    background: rgba(251, 243, 197, 0.5);
+    /*border: 1px solid #b6b6b6;*/
     border-radius: 25px;
     margin: auto;
     outline: none;
 }
 
-body.using-mouse .lucky-option input:focus {
-    outline: none;
+.lucky-option {
+    -webkit-tap-highlight-color: transparent;
 }
 
 
