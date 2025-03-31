@@ -7,7 +7,7 @@ from django.core.management import BaseCommand
 from stars_about_me import settings
 from stars_about_me.core.models import QrCode
 
-QR_FOLDER = 'media/qrcodes/'
+QR_FOLDER = 'media/testcodes/'
 
 class Command(BaseCommand):
     help = 'Generate QR codes'
@@ -23,7 +23,7 @@ class Command(BaseCommand):
 
         for _ in range(count):
             qr_id = str(uuid.uuid4())[:8]
-            qr_url = f'{settings.QR_BASE_URL}/luckies/{qr_id}.jpg'
+            qr_url = f'localhost:8000/luckies/{qr_id}.jpg'
 
             qr = qrcode.make(qr_url)
             qr_path = os.path.join(QR_FOLDER, f"{qr_id}.png")

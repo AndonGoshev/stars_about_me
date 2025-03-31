@@ -1,0 +1,224 @@
+#luckies-wrapper {
+    margin-top: 1em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*#heading-ct {*/
+/*    position: relative;*/
+/*    width: 100%;*/
+/*    height: 4em;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    background-color: rgba(255, 255, 255, 0.8);*/
+/*    border-radius: 50px;*/
+/*    overflow: hidden;*/
+/*    box-shadow: inset 0 5px 5px rgba(133, 129, 129, 1);*/
+/*    border: 3px solid #e4e4e4;*/
+/*}*/
+
+#heading-ct img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+#luckies-wrapper h2 {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    font-size: 1.5em;
+}
+
+#heading-ct h1 {
+    z-index: 1;
+    /*color: #A48385;*/
+    text-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+}
+
+#luckies-wrapper h2 {
+    font-size: 1em;
+}
+
+#luckyForm {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+#zodiac-sign-form-ct {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    margin-bottom: 0.5em;
+}
+
+.zodiac-signs-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    row-gap: 2em;
+    justify-content: space-between;
+}
+
+.zodiac-sign {
+    width: 5.5em;
+    height: 5.5em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5em 0.3em;
+
+
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.zodiac-sign label {
+    color: #4a4a4a;
+    font-weight: 400;
+}
+
+.sign-date {
+    font-size: 0.6em;
+}
+
+.sign-image {
+    width: 100%;
+    min-height: 45%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);*/
+}
+
+.sign-image img {
+    width: 45%;
+    height: 80%;
+}
+
+/* Hide the radio input */
+.zodiac-sign input[type="radio"] {
+    display: none;
+}
+
+.zodiac-sign:hover {
+    background-color: #bababa;
+}
+
+.zodiac-sign:has(input[type="radio"]:checked) {
+    background: rgba(251, 243, 197, 0.5); /* or any color/style you want for the selected state */
+    /*border: 1px solid #b6b6b6;*/
+}
+
+
+/*,*/
+/*,*/
+/*,*/
+/*,*/
+/*,*/
+/*,*/
+
+
+#luckyTypeContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+}
+
+#luckyTypeContainer h2 {
+    text-align: center;
+}
+
+
+
+
+
+#lucky-type-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+    width: 100%;
+}
+
+.lucky-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 3em;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 1em;
+    color: #4a4a4a;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.lucky-option:hover {
+    background: #bababa;
+}
+
+.lucky-option input {
+    display: none; /* Hide default radio button */
+}
+
+.lucky-option input:focus {
+    outline: none;
+}
+
+/* Style when selected */
+.lucky-option input:checked + span {
+    all: unset;
+    width: 100%;
+    height: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(251, 243, 197, 0.5);
+    /*border: 1px solid #b6b6b6;*/
+    border-radius: 25px;
+    margin: auto;
+    outline: none;
+}
+
+.lucky-option {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+#submitBtn {
+    width: 100%;
+    height: 4em;
+    background: rgba(37, 110, 57, 0.5);
+    border-radius: 25px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.5em;
+    color: rgb(255, 255, 255);
+    font-size: 0.8em;
+}
