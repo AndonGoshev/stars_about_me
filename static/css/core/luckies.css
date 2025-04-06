@@ -32,7 +32,6 @@
 #luckies-wrapper h2 {
     color: rgba(255, 255, 255, 0.8);
     font-weight: 400;
-    font-size: 1.5em;
 }
 
 #heading-ct h1 {
@@ -42,7 +41,10 @@
 }
 
 #luckies-wrapper h2 {
-    font-size: 1em;
+    font-size: 1.3em;
+    text-shadow: 2px 2px 2px rgb(27, 26, 26);
+    animation: heartBeat; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 4s; /* don't forget to set a duration! */
 }
 
 #luckyForm {
@@ -147,9 +149,6 @@
 #luckyTypeContainer h2 {
     text-align: center;
 }
-
-
-
 
 
 #lucky-type-options {

@@ -13,9 +13,9 @@
 
             <div id="heading-ct">
 
-{#                <img src="{% static 'images/heading-bg.jpg' %}">#}
+                {#                <img src="{% static 'images/heading-bg.jpg' %}">#}
                 <h1>Зодиакални късмети</h1>
-                
+
             </div>
 
             <div id="zodiac-sign-form-ct">
@@ -137,10 +137,53 @@
 
 {% block scripts %}
 
-    {#    <script>document.addEventListener("DOMContentLoaded", function() {#}
-    {#    document.getElementById("id_lucky_type").setAttribute("size", "3");#}
-    {#});#}
-    {#</script>#}
+    <script>document.addEventListener("DOMContentLoaded", function () {
+        // Function for custom smooth scrolling
+        function smoothScrollTo(target, duration) {
+            const start = window.scrollY || window.pageYOffset;
+            const end = target.offsetTop;
+            const change = end - start;
+            let currentTime = 0;
+            const increment = 10; // Time interval in milliseconds
+
+            function animateScroll() {
+                currentTime += increment;
+                const val = easeInOutQuad(currentTime, start, change, duration);
+                window.scrollTo(0, val);
+                if (currentTime < duration) {
+                    requestAnimationFrame(animateScroll);
+                }
+            }
+
+            // Easing function for smooth scrolling (ease in-out effect)
+            function easeInOutQuad(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return (c / 2) * t * t + b;
+                t--;
+                return (-c / 2) * (t * (t - 2) - 1) + b;
+            }
+
+            animateScroll();
+        }
+
+        // Listen for changes to zodiac sign selection
+        const zodiacSigns = document.querySelectorAll('.zodiac-sign input[type="radio"]');
+        const luckyTypeContainer = document.getElementById('luckyTypeContainer');
+
+        zodiacSigns.forEach(function (zodiac) {
+            zodiac.addEventListener('change', function () {
+                // Custom smooth scroll with a longer duration (e.g., 1500ms)
+                smoothScrollTo(luckyTypeContainer, 700);  // Adjust the duration for slower scrolling
+            });
+        });
+    });
+
+    const h2Element = document.querySelector("#luckyTypeContainer > h2");
+    if (h2Element) {
+        // Apply animation style directly
+        h2Element.style.animation = "heartBeat 5s ease-in-out infinite";
+    }
+    </script>
 
 {% endblock %}
 

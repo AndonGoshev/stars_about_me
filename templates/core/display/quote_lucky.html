@@ -3,14 +3,32 @@
 
 {% block content %}
 
-    <div id="quote-wrapper">
-    
+    {% block header-scripts %}
+        <script src="{% static 'js/loader.js' %}" defer></script>
+    {% endblock %}
+
+    <div id="quote-wrapper" class="page-with-animation">
+
+        <div id="loader">
+
+            <div id="loader-bg"><img src="{% static 'images/stars.jpg' %}"></div>
+
+            <div class="orbit-loader">
+
+                <div class="planet"></div>
+                <div class="moon"></div>
+
+            </div>
+
+        </div>
+
         <h1>Зодиакални късмети</h1>
-        
-        <div id="sign-ct"><img src="{% static 'images/' %}{{ zodiac_sign_eng|lower }}.png" alt="{{ zodiac_sign }}"></div>
+
+        <div id="sign-ct"><img src="{% static 'images/' %}{{ zodiac_sign_eng|lower }}.png" alt="{{ zodiac_sign }}">
+        </div>
 
         <div id="quote-ct">
-            
+
             <div id="top-line"><img src="{% static 'images/divider.png' %}"></div>
 
             <h2 id="quote">{{ content }}</h2>
@@ -19,7 +37,7 @@
                 <p id="author">{{ author }} <span>(Зодия {{ zodiac_sign }})</span></p>
 
             </div>
-            
+
             <div id="bottom-line"><img src="{% static 'images/divider.png' %}"></div>
 
 

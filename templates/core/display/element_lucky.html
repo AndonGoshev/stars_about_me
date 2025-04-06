@@ -3,7 +3,23 @@
 
 {% block content %}
 
-    <div id="element-wrapper">
+    {% block header-scripts %}
+        <script src="{% static 'js/loader.js' %}"></script>
+    {% endblock %}
+
+
+    <div id="element-wrapper" class="page-with-animation">
+
+        <div id="loader">
+
+            <div id="loader-bg"><img src="{% static 'images/stars.jpg' %}"></div>
+
+            <div class="orbit-loader">
+                <div class="planet"></div>
+                <div class="moon"></div>
+            </div>
+
+        </div>
 
         <h1>Зодиакални късмети</h1>
         <p>Стихия {{ element }}</p>
@@ -16,23 +32,23 @@
             <div id="top-line-el"><img src="{% static 'images/divider.png' %}"></div>
 
             <h2 id="element">{{ content }}</h2>
-{#            <div id="element-testimonial">#}
-{##}
-{#                <p id="element-author">Стихия #}
-{##}
-{#                    {% if element == 'Огън' %}#}
-{#                        <span id="fire-el">{{ element }}</span>#}
-{#                    {% elif element == 'Вода' %}#}
-{#                        <span id="water-el">{{ element }}</span>#}
-{#                    {% elif element == 'Въздух' %}#}
-{#                        <span id="air-el">{{ element }}</span>#}
-{#                    {% elif element == 'Земя' %}#}
-{#                        <span id="earth-el">{{ element }}</span>#}
-{#                    {% endif %}#}
-{##}
-{#                </p>#}
-{##}
-{#            </div>#}
+            {#            <div id="element-testimonial">#}
+            {##}
+            {#                <p id="element-author">Стихия #}
+            {##}
+            {#                    {% if element == 'Огън' %}#}
+            {#                        <span id="fire-el">{{ element }}</span>#}
+            {#                    {% elif element == 'Вода' %}#}
+            {#                        <span id="water-el">{{ element }}</span>#}
+            {#                    {% elif element == 'Въздух' %}#}
+            {#                        <span id="air-el">{{ element }}</span>#}
+            {#                    {% elif element == 'Земя' %}#}
+            {#                        <span id="earth-el">{{ element }}</span>#}
+            {#                    {% endif %}#}
+            {##}
+            {#                </p>#}
+            {##}
+            {#            </div>#}
 
             <div id="bottom-line-el"><img src="{% static 'images/divider.png' %}"></div>
 
@@ -40,6 +56,5 @@
         </div>
 
     </div>
-
 
 {% endblock %}

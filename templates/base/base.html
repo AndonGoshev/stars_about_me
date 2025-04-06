@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
 
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
     <title>{% block title %}{% endblock %}</title>
 
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -13,16 +18,18 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/fav-icon.png' %}"
           style="width: 32px; height: 32px">
 
+    {% block header-scripts %}
+    {% endblock %}
 
 </head>
 <body>
 
 <div class="site">
 
-    {#<video autoplay muted loop id="bg-video">#}
-    {#    <source src="{% static 'images/bg-video1.mp4' %}" type="video/mp4">#}
-    {#    Your browser does not support the video tag.#}
-    {#</video>#}
+    {#    <video autoplay muted loop id="bg-video">#}
+    {#        <source src="{% static 'images/bg-video1.mp4' %}" type="video/mp4">#}
+    {#        Your browser does not support the video tag.#}
+    {#    </video>#}
 
     <header>
 
@@ -55,12 +62,13 @@
 <style>
 
     .site {
+        position: relative;
         background-image: url("{% static 'images/main-bg6.jpg' %}");
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
         opacity: 0.95;
-        
+
         #bg-video {
             position: fixed;
             top: 0;
