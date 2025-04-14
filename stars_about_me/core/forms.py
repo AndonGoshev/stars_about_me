@@ -22,7 +22,14 @@ class ZodiacSignForm(forms.Form):
     LUCKY_TYPES = [
         ('quote', 'Quote'),
         ('wisdom', 'Wisdom'),
-        ('element', 'Element')
+        ('element', 'Element'),
+        ('horoscope', 'Horoscope'),
+    ]
+
+    HOROSCOPE_TYPES = [
+        ('daily', 'Дневен'),
+        ('weekly', 'Седмичен'),
+        ('monthly', 'Месечен'),
     ]
 
     zodiac_sign = forms.ChoiceField(
@@ -30,6 +37,8 @@ class ZodiacSignForm(forms.Form):
         widget=forms.RadioSelect(attrs={'class': 'zodiac-radio'})
     )
     lucky_type = forms.ChoiceField(choices=LUCKY_TYPES)
+
+    horoscope_type = forms.ChoiceField(choices=HOROSCOPE_TYPES, required=False)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -49,3 +58,11 @@ class ZodiacSignForm(forms.Form):
             'aquarius': bound_zodiac[10],
             'pisces': bound_zodiac[11],
         }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        lucky_type = cleaned_data.get('lucky_type')
+        horoscope_type = cleaned_data.get('horoscope_type')
+
+        if lucky_type == 'horoscope' and not horoscope_type:
+            self.add_error('horoscope_type', 'Моля, изберете тип хороскоп.')  # Bulgarian message

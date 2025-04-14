@@ -43,8 +43,8 @@
 #luckies-wrapper h2 {
     font-size: 1.3em;
     text-shadow: 2px 2px 2px rgb(27, 26, 26);
-    animation: heartBeat; /* referring directly to the animation's @keyframe declaration */
-    animation-duration: 4s; /* don't forget to set a duration! */
+    /*animation: heartBeat; !* referring directly to the animation's @keyframe declaration *!*/
+    /*animation-duration: 4s; !* don't forget to set a duration! *!*/
 }
 
 #luckyForm {

@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
 
+    {% block meta %}
+    {% endblock %}
+
     <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -63,7 +66,7 @@
 
     .site {
         position: relative;
-        background-image: url("{% static 'images/main-bg6.jpg' %}");
+        background-image: url("{% static 'images/main-bg1.png' %}");
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;

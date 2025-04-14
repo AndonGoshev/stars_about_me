@@ -5,6 +5,7 @@
     Зодиакални късмети
 {% endblock %}
 
+
 {% block content %}
     <div id="luckies-wrapper">
 
@@ -123,7 +124,22 @@
                         <input type="radio" name="lucky_type" value="element">
                         <span>Стихия</span>
                     </label>
+
+                    <label class="lucky-option">
+                        <input type="radio" name="lucky_type" value="horoscope">
+                        <span>Хороскоп</span>
+                    </label>
                 </div>
+            </div>
+
+            <div id="horoscopeTypeContainer" style="display: none; margin-top: 1em;">
+                <label for="id_horoscope_type">Изберете вид хороскоп:</label>
+                <select name="horoscope_type" id="id_horoscope_type" required>
+                    <option value="" selected disabled>Изберете...</option>
+                    <option value="daily">Дневен</option>
+                    <option value="weekly">Седмичен</option>
+                    <option value="monthly">Месечен</option>
+                </select>
             </div>
 
 
@@ -137,52 +153,32 @@
 
 {% block scripts %}
 
-    <script>document.addEventListener("DOMContentLoaded", function () {
-        // Function for custom smooth scrolling
-        function smoothScrollTo(target, duration) {
-            const start = window.scrollY || window.pageYOffset;
-            const end = target.offsetTop;
-            const change = end - start;
-            let currentTime = 0;
-            const increment = 10; // Time interval in milliseconds
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const luckyTypeRadios = document.querySelectorAll('input[name="lucky_type"]');
+            const horoscopeContainer = document.getElementById("horoscopeTypeContainer");
 
-            function animateScroll() {
-                currentTime += increment;
-                const val = easeInOutQuad(currentTime, start, change, duration);
-                window.scrollTo(0, val);
-                if (currentTime < duration) {
-                    requestAnimationFrame(animateScroll);
-                }
-            }
-
-            // Easing function for smooth scrolling (ease in-out effect)
-            function easeInOutQuad(t, b, c, d) {
-                t /= d / 2;
-                if (t < 1) return (c / 2) * t * t + b;
-                t--;
-                return (-c / 2) * (t * (t - 2) - 1) + b;
-            }
-
-            animateScroll();
-        }
-
-        // Listen for changes to zodiac sign selection
-        const zodiacSigns = document.querySelectorAll('.zodiac-sign input[type="radio"]');
-        const luckyTypeContainer = document.getElementById('luckyTypeContainer');
-
-        zodiacSigns.forEach(function (zodiac) {
-            zodiac.addEventListener('change', function () {
-                // Custom smooth scroll with a longer duration (e.g., 1500ms)
-                smoothScrollTo(luckyTypeContainer, 700);  // Adjust the duration for slower scrolling
+            luckyTypeRadios.forEach(radio => {
+                radio.addEventListener("change", () => {
+                    if (radio.value === "horoscope") {
+                        horoscopeContainer.style.display = "block";
+                    } else {
+                        horoscopeContainer.style.display = "none";
+                    }
+                });
             });
         });
-    });
 
-    const h2Element = document.querySelector("#luckyTypeContainer > h2");
-    if (h2Element) {
-        // Apply animation style directly
-        h2Element.style.animation = "heartBeat 5s ease-in-out infinite";
-    }
+        document.addEventListener("DOMContentLoaded", function () {
+            const zodiacSigns = document.querySelectorAll('.zodiac-sign input[type="radio"]');
+            const luckyTypeContainer = document.getElementById('luckyTypeContainer');
+
+            zodiacSigns.forEach(function (zodiac) {
+                zodiac.addEventListener('change', function () {
+                    luckyTypeContainer.scrollIntoView({behavior: 'smooth'});
+                });
+            });
+        });
     </script>
 
 {% endblock %}

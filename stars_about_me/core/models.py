@@ -2,7 +2,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 
-from stars_about_me.core.choices import LuckyTypeChoices, ZodiacSigns, ElementTypeChoices
+from stars_about_me.core.choices import LuckyTypeChoices, ZodiacSigns, ElementTypeChoices, HoroscopeTypeChoices
 
 
 class LuckyBase(models.Model):
@@ -27,7 +27,6 @@ class ElementLucky(LuckyBase):
     element = models.CharField(max_length=20, choices=ElementTypeChoices)
 
 
-
 class QrCode(models.Model):
     qr_id = models.CharField(max_length=20, unique=True)
     scanned = models.BooleanField(default=False)
@@ -35,6 +34,8 @@ class QrCode(models.Model):
     lucky_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True, blank=True)
     lucky_id = models.PositiveIntegerField(null=True, blank=True)  # Make nullable
     linked_lucky = GenericForeignKey('lucky_type', 'lucky_id')
+    linked_lucky_type = models.CharField(max_length=20, null=True, blank=True)  # Add this line
+    horoscope_data = models.JSONField(null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
 

@@ -26,3 +26,9 @@ class ElementTypeChoices(models.TextChoices):
     water = 'Water'
     earth = 'Earth'
     air = 'Air'
+
+
+class HoroscopeTypeChoices(models.TextChoices):
+    daily = 'Daily'
+    weekly = 'Weekly'
+    monthly = 'Monthly'
