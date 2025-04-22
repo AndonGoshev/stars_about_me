@@ -9,15 +9,14 @@
 {% block content %}
     <div id="luckies-wrapper">
 
+        <div id="heading-ct">
+
+            <img src="{% static 'images/zk-light-logo1.png' %}">
+
+        </div>
+
         <form id="luckyForm" method="POST">
             {% csrf_token %}
-
-            <div id="heading-ct">
-
-                {#                <img src="{% static 'images/heading-bg.jpg' %}">#}
-                <h1>Зодиакални късмети</h1>
-
-            </div>
 
             <div id="zodiac-sign-form-ct">
 
@@ -26,75 +25,85 @@
                 <!-- Zodiac Sign Selection rendered via RadioSelect -->
                 <div class="zodiac-signs-container">
 
-                    <label class="zodiac-sign" id="aries-choice" for="{{ form.zodiac_signs.aries.id_for_label }}">
+                    <label class="zodiac-sign selectable-card" id="aries-choice"
+                           for="{{ form.zodiac_signs.aries.id_for_label }}">
                         <div class="sign-image"><img src="{% static 'images/aries.png' %}" alt="Овен"></div>
                         {{ form.zodiac_signs.aries }}
                         <p class="sign-date">(25.15 - 15.32)</p>
                     </label>
 
-                    <label class="zodiac-sign" id="taurus-choice" for="{{ form.zodiac_signs.taurus.id_for_label }}">
+                    <label class="zodiac-sign selectable-card" id="taurus-choice"
+                           for="{{ form.zodiac_signs.taurus.id_for_label }}">
                         <div class="sign-image"><img src="{% static 'images/taurus.png' %}" alt="Телец"></div>
                         {{ form.zodiac_signs.taurus }}
                         <p class="sign-date">(25.15 - 15.32)</p>
                     </label>
 
-                    <label class="zodiac-sign" id="gemini-choice" for="{{ form.zodiac_signs.gemini.id_for_label }}">
+                    <label class="zodiac-sign selectable-card" id="gemini-choice"
+                           for="{{ form.zodiac_signs.gemini.id_for_label }}">
                         <div class="sign-image"><img src="{% static 'images/gemini.png' %}" alt="Близнаци"></div>
                         {{ form.zodiac_signs.gemini }}
                         <p class="sign-date">(25.15 - 15.32)</p>
                     </label>
 
-                    <label class="zodiac-sign" id="cancer-choice" for="{{ form.zodiac_signs.cancer.id_for_label }}">
+                    <label class="zodiac-sign selectable-card" id="cancer-choice"
+                           for="{{ form.zodiac_signs.cancer.id_for_label }}">
                         <div class="sign-image"><img src="{% static 'images/cancer.png' %}" alt="Рак"></div>
                         {{ form.zodiac_signs.cancer }}
                         <p class="sign-date">(25.15 - 15.32)</p>
                     </label>
 
-                    <label class="zodiac-sign" id="leo-choice" for="{{ form.zodiac_signs.leo.id_for_label }}">
+                    <label class="zodiac-sign selectable-card" id="leo-choice"
+                           for="{{ form.zodiac_signs.leo.id_for_label }}">
                         <div class="sign-image"><img src="{% static 'images/leo.png' %}" alt="Лъв"></div>
                         {{ form.zodiac_signs.leo }}
                         <p class="sign-date">(25.15 - 15.32)</p>
                     </label>
 
-                    <label class="zodiac-sign" id="virgo-choice" for="{{ form.zodiac_signs.virgo.id_for_label }}">
+                    <label class="zodiac-sign selectable-card" id="virgo-choice"
+                           for="{{ form.zodiac_signs.virgo.id_for_label }}">
                         <div class="sign-image"><img src="{% static 'images/virgo.png' %}" alt="Дева"></div>
                         {{ form.zodiac_signs.virgo }}
                         <p class="sign-date">(25.15 - 15.32)</p>
                     </label>
 
-                    <label class="zodiac-sign" id="libra-choice" for="{{ form.zodiac_signs.libra.id_for_label }}">
+                    <label class="zodiac-sign selectable-card" id="libra-choice"
+                           for="{{ form.zodiac_signs.libra.id_for_label }}">
                         <div class="sign-image"><img src="{% static 'images/libra.png' %}" alt="Везни"></div>
                         {{ form.zodiac_signs.libra }}
                         <p class="sign-date">(25.15 - 15.32)</p>
                     </label>
 
-                    <label class="zodiac-sign" id="scorpio-choice" for="{{ form.zodiac_signs.scorpio.id_for_label }}">
+                    <label class="zodiac-sign selectable-card" id="scorpio-choice"
+                           for="{{ form.zodiac_signs.scorpio.id_for_label }}">
                         <div class="sign-image"><img src="{% static 'images/scorpio.png' %}" alt="Скорпион"></div>
                         {{ form.zodiac_signs.scorpio }}
                         <p class="sign-date">(25.15 - 15.32)</p>
                     </label>
 
-                    <label class="zodiac-sign" id="sagittarius-choice"
+                    <label class="zodiac-sign selectable-card" id="sagittarius-choice"
                            for="{{ form.zodiac_signs.sagittarius.id_for_label }}">
                         <div class="sign-image"><img src="{% static 'images/sagittarius.png' %}" alt="Стрелец"></div>
                         {{ form.zodiac_signs.sagittarius }}
                         <p class="sign-date">(25.15 - 15.32)</p>
                     </label>
 
-                    <label class="zodiac-sign" id="capricorn-choice"
+                    <label class="zodiac-sign selectable-card" id="capricorn-choice"
                            for="{{ form.zodiac_signs.capricorn.id_for_label }}">
                         <div class="sign-image"><img src="{% static 'images/capricorn.png' %}" alt="Козирог"></div>
                         {{ form.zodiac_signs.capricorn }}
                         <p class="sign-date">(25.15 - 15.32)</p>
                     </label>
 
-                    <label class="zodiac-sign" id="aquarius-choice" for="{{ form.zodiac_signs.aquarius.id_for_label }}">
+                    <label class="zodiac-sign selectable-card" id="aquarius-choice"
+                           for="{{ form.zodiac_signs.aquarius.id_for_label }}">
                         <div class="sign-image"><img src="{% static 'images/aquarius.png' %}" alt="Водолей"></div>
                         {{ form.zodiac_signs.aquarius }}
                         <p class="sign-date">(25.15 - 15.32)</p>
                     </label>
 
-                    <label class="zodiac-sign" id="pisces-choice" for="{{ form.zodiac_signs.pisces.id_for_label }}">
+                    <label class="zodiac-sign selectable-card" id="pisces-choice"
+                           for="{{ form.zodiac_signs.pisces.id_for_label }}">
                         <div class="sign-image"><img src="{% static 'images/pisces.png' %}" alt="Риби"></div>
                         {{ form.zodiac_signs.pisces }}
                         <p class="sign-date">(25.15 - 15.32)</p>
@@ -110,36 +119,33 @@
                 <h2>Изберете категория</h2>
 
                 <div id="lucky-type-options">
-                    <label class="lucky-option">
+                    <label class="lucky-option selectable-card">
                         <input type="radio" name="lucky_type" value="quote" required>
                         <span>Цитат от известна личност от вашата зодия</span>
                     </label>
 
-                    <label class="lucky-option">
+                    <label class="lucky-option selectable-card">
                         <input type="radio" name="lucky_type" value="wisdom">
                         <span>Мъдрост на знака</span>
                     </label>
 
-                    <label class="lucky-option">
-                        <input type="radio" name="lucky_type" value="element">
-                        <span>Стихия</span>
-                    </label>
+                    {#                    <label class="lucky-option">#}
+                    {#                        <input type="radio" name="lucky_type" value="element">#}
+                    {#                        <span>Стихия</span>#}
+                    {#                    </label>#}
 
-                    <label class="lucky-option">
+                    <label class="lucky-option selectable-card">
                         <input type="radio" name="lucky_type" value="horoscope">
                         <span>Хороскоп</span>
                     </label>
-                </div>
-            </div>
 
-            <div id="horoscopeTypeContainer" style="display: none; margin-top: 1em;">
-                <label for="id_horoscope_type">Изберете вид хороскоп:</label>
-                <select name="horoscope_type" id="id_horoscope_type" required>
-                    <option value="" selected disabled>Изберете...</option>
-                    <option value="daily">Дневен</option>
-                    <option value="weekly">Седмичен</option>
-                    <option value="monthly">Месечен</option>
-                </select>
+                    <div id="horoscopeTypeContainer" class="horoscope-hidden">
+                        <div class="horoscope-option selectable-card" data-value="daily">Дневен</div>
+                        <div class="horoscope-option selectable-card" data-value="weekly">Седмичен</div>
+                        <input type="hidden" name="horoscope_type" id="selectedHoroscopeType" required>
+                    </div>
+
+                </div>
             </div>
 
 
@@ -149,25 +155,28 @@
 
 
     </div>
+
+
+    <style>
+
+        #luckies-wrapper {
+            position: relative;
+            background-image: url("{% static 'images/main-bg2.png' %}");
+            background-position: top;
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 1;
+            background-attachment: fixed;
+        }
+
+    </style>
+
+
 {% endblock %}
 
 {% block scripts %}
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const luckyTypeRadios = document.querySelectorAll('input[name="lucky_type"]');
-            const horoscopeContainer = document.getElementById("horoscopeTypeContainer");
-
-            luckyTypeRadios.forEach(radio => {
-                radio.addEventListener("change", () => {
-                    if (radio.value === "horoscope") {
-                        horoscopeContainer.style.display = "block";
-                    } else {
-                        horoscopeContainer.style.display = "none";
-                    }
-                });
-            });
-        });
 
         document.addEventListener("DOMContentLoaded", function () {
             const zodiacSigns = document.querySelectorAll('.zodiac-sign input[type="radio"]');
@@ -179,6 +188,61 @@
                 });
             });
         });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const luckyTypeRadios = document.querySelectorAll('input[name="lucky_type"]');
+            const horoscopeContainer = document.getElementById("horoscopeTypeContainer");
+            const horoscopeOptions = document.querySelectorAll(".horoscope-option");
+            const selectedInput = document.getElementById("selectedHoroscopeType");
+
+            luckyTypeRadios.forEach(radio => {
+                radio.addEventListener("change", () => {
+                    if (radio.value === "horoscope") {
+                        horoscopeContainer.classList.add("visible");
+                        selectedInput.required = true;
+                    } else {
+                        horoscopeContainer.classList.remove("visible");
+                        selectedInput.required = false;
+                        selectedInput.value = "";
+                        horoscopeOptions.forEach(opt => opt.classList.remove("selected"));
+                    }
+                });
+            });
+
+            horoscopeOptions.forEach(option => {
+                option.addEventListener("click", () => {
+                    horoscopeOptions.forEach(opt => opt.classList.remove("selected"));
+                    option.classList.add("selected");
+                    selectedInput.value = option.dataset.value;
+                });
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("luckyForm"); // Replace with your actual form ID
+            const selectedInput = document.getElementById("selectedHoroscopeType");
+            const luckyTypeRadios = document.querySelectorAll('input[name="lucky_type"]');
+
+            const errorMsg = document.createElement("div");
+            errorMsg.style.color = "red";
+            errorMsg.style.marginTop = "10px";
+            errorMsg.style.display = "none";
+            errorMsg.textContent = "Please select a horoscope type.";
+            selectedInput.parentNode.appendChild(errorMsg);
+
+            form.addEventListener("submit", function (e) {
+                const selectedLuckyType = Array.from(luckyTypeRadios).find(r => r.checked)?.value;
+
+                if (selectedLuckyType === "horoscope" && selectedInput.value.trim() === "") {
+                    e.preventDefault();
+                    alert("Моля, изберете тип хороскоп."); // 🧙‍♀️ A nice Bulgarian popup!
+                    selectedInput.scrollIntoView({behavior: "smooth"});
+                } else {
+                    errorMsg.style.display = "none";
+                }
+            });
+        });
+
     </script>
 
 {% endblock %}

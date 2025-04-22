@@ -1,47 +1,23 @@
-{% extends 'base/base.html' %}
 {% load static %}
 
-{% block content %}
 
-    {% block header-scripts %}
-        <script src="{% static 'js/loader.js' %}" defer></script>
-    {% endblock %}
+<div class="display-inner-ct">
 
-    <div id="wisdom-wrapper" class="page-with-animation">
+    <div class="sign-ct"><img class="sign-circle" src="{% static 'images/sign-circle.png' %}"><img src="{% static 'images/' %}{{ zodiac_sign_eng|lower }}.png" alt="{{ zodiac_sign }}">
+    </div>
 
-        <div id="loader">
+    <div class="content-ct">
 
-            <div id="loader-bg"><img src="{% static 'images/stars.jpg' %}"></div>
+        <h2 class="content short-content">{{ content }}</h2>
+        <div class="reference-ct">
 
-            <div class="orbit-loader">
-                <div class="planet"></div>
-                <div class="moon"></div>
-            </div>
+            <p class="reference">Сентенции за <span>Зодия {{ zodiac_sign }}</span></p>
 
         </div>
 
-        <h1>Зодиакални късмети</h1>
-
-        <div id="sign-ct"><img src="{% static 'images/' %}{{ zodiac_sign_eng|lower }}.png" alt="{{ zodiac_sign }}">
-        </div>
-
-        <div id="wisdom-ct">
-
-            <div id="top-line"><img src="{% static 'images/divider.png' %}"></div>
-
-            <h2 id="wisdom">{{ content }}</h2>
-            <div id="wisdom-testimonial">
-
-                <p id="wisdom-author">Сентенции за <span>Зодия {{ zodiac_sign }}</span></p>
-
-            </div>
-
-            <div id="bottom-line"><img src="{% static 'images/divider.png' %}"></div>
-
-
-        </div>
 
     </div>
 
+</div>
 
-{% endblock %}
+

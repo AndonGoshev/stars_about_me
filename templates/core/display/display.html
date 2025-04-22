@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block header-scripts %}
+    <script src="{% static 'js/loader.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+            <div id="loader">
+
+                <div id="loader-bg"><img src="{% static 'images/stars.jpg' %}"></div>
+
+                <div class="orbit-loader">
+                    <div class="planet"></div>
+                    <div class="moon"></div>
+                </div>
+
+            </div>
+
+    <div id="display-wrapper">
+
+        <img class="small-star" src="{% static 'images/small-stars.png' %}">
+
+        {% if lucky_type == 'quote' %}
+
+            {% include 'core/display/quote_lucky.html' %}
+
+        {% elif lucky_type == 'wisdom' %}
+
+            {% include 'core/display/wisdom_lucky.html' %}
+
+        {% elif lucky_type == 'element' %}
+
+            {% include 'core/display/element_lucky.html' %}
+
+        {% elif lucky_type == 'horoscope' %}
+
+            {% include 'core/display/horoscope_lucky.html' %}
+
+        {% endif %}
+
+        <div id="display-logo-ct"><img src="{% static 'images/zk-dark-logo1.png' %}"></div>
+
+        <img class="container-shape" src="{% static 'images/container-shape.png' %}">
+
+    </div>
+
+{% endblock %}

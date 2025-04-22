@@ -6,6 +6,7 @@ footer {
     align-items: center;
     color: white;
     padding: 2em 1em 1em 1em;
+    display: none;
 }
 
 #footer-wrapper {

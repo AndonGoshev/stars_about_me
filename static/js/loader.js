@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
             setTimeout(function () {
                 loader.style.opacity = 0;  // Fade out the loader
                 loader.style.visibility = "hidden";  // Hide it completely after fade
-            }, 1000); // Adjust the delay as per your requirement (e.g., 2 seconds)
+            }, 500); // Adjust the delay as per your requirement (e.g., 2 seconds)
         } else {
             console.log("Loader element not found!");
         }

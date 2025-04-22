@@ -1,49 +1,23 @@
-{% extends 'base/base.html' %}
 {% load static %}
 
-{% block content %}
+<div class="display-inner-ct" >
+    
+    <div class="sign-ct">
+        <img class="sign-circle" src="{% static 'images/sign-circle.png' %}">
+        <img src="{% static 'images/' %}{{ zodiac_sign_eng|lower }}.png" alt="{{ zodiac_sign }}">
+    </div>
 
-    {% block header-scripts %}
-        <script src="{% static 'js/loader.js' %}" defer></script>
-    {% endblock %}
+    <div class="content-ct">
 
-    <div id="quote-wrapper" class="page-with-animation">
+        <h2 class="content short-content">{{ content }}</h2>
+        <div class="reference-ct">
 
-        <div id="loader">
-
-            <div id="loader-bg"><img src="{% static 'images/stars.jpg' %}"></div>
-
-            <div class="orbit-loader">
-
-                <div class="planet"></div>
-                <div class="moon"></div>
-
-            </div>
-
-        </div>
-
-        <h1>Зодиакални късмети</h1>
-
-        <div id="sign-ct"><img src="{% static 'images/' %}{{ zodiac_sign_eng|lower }}.png" alt="{{ zodiac_sign }}">
-        </div>
-
-        <div id="quote-ct">
-
-            <div id="top-line"><img src="{% static 'images/divider.png' %}"></div>
-
-            <h2 id="quote">{{ content }}</h2>
-            <div id="testimonial">
-
-                <p id="author">{{ author }} <span>(Зодия {{ zodiac_sign }})</span></p>
-
-            </div>
-
-            <div id="bottom-line"><img src="{% static 'images/divider.png' %}"></div>
-
+            <p class="reference">{{ author }} <span>(Зодия {{ zodiac_sign }})</span></p>
 
         </div>
 
     </div>
 
+</div>
 
-{% endblock %}
+

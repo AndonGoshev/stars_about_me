@@ -5,6 +5,7 @@ class LuckyTypeChoices(models.TextChoices):
     quote = 'quote'
     wisdom = 'wisdom'
     element = 'element'
+    horoscope = 'horoscope'
 
 
 class ZodiacSigns(models.TextChoices):
@@ -15,6 +16,7 @@ class ZodiacSigns(models.TextChoices):
     leo = 'Leo'
     virgo = 'Virgo'
     libra = 'Libra'
+    scorpio = 'Scorpio'
     sagittarius = 'Sagittarius'
     capricorn = 'Capricorn'
     aquarius = 'Aquarius'
@@ -31,4 +33,3 @@ class ElementTypeChoices(models.TextChoices):
 class HoroscopeTypeChoices(models.TextChoices):
     daily = 'Daily'
     weekly = 'Weekly'
-    monthly = 'Monthly'

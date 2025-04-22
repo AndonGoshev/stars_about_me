@@ -1,32 +1,29 @@
 #luckies-wrapper {
-    margin-top: 1em;
+    padding: 2em 0;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1em;
 }
 
-/*#heading-ct {*/
-/*    position: relative;*/
-/*    width: 100%;*/
-/*    height: 4em;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    justify-content: center;*/
-/*    background-color: rgba(255, 255, 255, 0.8);*/
-/*    border-radius: 50px;*/
-/*    overflow: hidden;*/
-/*    box-shadow: inset 0 5px 5px rgba(133, 129, 129, 1);*/
-/*    border: 3px solid #e4e4e4;*/
-/*}*/
+#heading-ct {
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /*background: rgba(76, 76, 76, 0.5);*/
+    /*border-radius: 16px;*/
+    /*box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);*/
+    /*backdrop-filter: blur(5px);*/
+    /*-webkit-backdrop-filter: blur(5px);*/
+    /*border: 1px solid rgba(149, 149, 149, 0.3);*/
+}
 
 #heading-ct img {
-    position: absolute;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.8;
+    object-fit: contain;
 }
 
 #luckies-wrapper h2 {
@@ -121,11 +118,11 @@
 }
 
 .zodiac-sign:hover {
-    background-color: #bababa;
+    /*background-color: #bababa;*/
 }
 
 .zodiac-sign:has(input[type="radio"]:checked) {
-    background: rgba(251, 243, 197, 0.5); /* or any color/style you want for the selected state */
+    background: rgba(251, 243, 197, 0.8); /* or any color/style you want for the selected state */
     /*border: 1px solid #b6b6b6;*/
 }
 
@@ -177,7 +174,7 @@
 }
 
 .lucky-option:hover {
-    background: #bababa;
+    /*background: #bababa;*/
 }
 
 .lucky-option input {
@@ -188,20 +185,23 @@
     outline: none;
 }
 
-/* Style when selected */
-.lucky-option input:checked + span {
-    all: unset;
-    width: 100%;
-    height: 3em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: rgba(251, 243, 197, 0.5);
-    /*border: 1px solid #b6b6b6;*/
-    border-radius: 25px;
-    margin: auto;
-    outline: none;
+.lucky-option:has(input[type="radio"]:checked) {
+    background: rgba(251, 243, 197, 0.8);
 }
+
+/*.lucky-option input:checked + span {*/
+/*    all: unset;*/
+/*    width: 100%;*/
+/*    height: 3em;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    background: rgba(251, 243, 197, 0.5);*/
+/*    !*border: 1px solid #b6b6b6;*!*/
+/*    border-radius: 25px;*/
+/*    margin: auto;*/
+/*    outline: none;*/
+/*}*/
 
 .lucky-option {
     -webkit-tap-highlight-color: transparent;
@@ -221,3 +221,80 @@
     color: rgb(255, 255, 255);
     font-size: 0.8em;
 }
+
+#horoscopeTypeContainer {
+    width: 50%;
+    max-height: 0;
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease, width 0.5s ease;
+
+}
+
+/* When visible */
+#horoscopeTypeContainer.visible {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    max-height: 500px; /* Enough room for inner content */
+    opacity: 1;
+}
+
+
+.horoscope-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 2.5em;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 25px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 1em;
+    color: #4a4a4a;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    transition: max-height 0.5s ease, opacity 1.5s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.horoscope-option:hover {
+    /*background-color: #bababa;*/
+}
+
+.horoscope-option.selected {
+    background: rgba(251, 243, 197, 0.8);
+}
+
+/*.horoscope-option.selected {*/
+/*    all: unset;*/
+/*    width: 40%;*/
+/*    height: 2.5em;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    background: rgba(251, 243, 197, 0.8);*/
+/*    !*border: 1px solid #b6b6b6;*!*/
+/*    border-radius: 25px;*/
+/*    outline: none;*/
+/*}*/
+
+
+/*.selectable-card {*/
+/*  border-radius: 25px;*/
+/*  transition: background-color 0.1s ease;*/
+/*}*/
+
+/*.selectable-card:hover {*/
+/*  background: rgba(232, 224, 177, 0.8);*/
+/*}*/
+
+
+/*.selectable-card:has(input:checked) {*/
+/*  background: rgba(251, 243, 197, 0.8);*/
+/*}*/

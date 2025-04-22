@@ -1,9 +1,10 @@
+from datetime import timedelta
+
+from dateutil.utils import today
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import DetailView
 from .forms import ZodiacSignForm
-from .horoscope_api.chat_gpt import translate_to_bulgarian
-from .horoscope_api.fetch_api import _fetch_horoscope, get_daily_horoscope, get_weekly_horoscope, get_monthly_horoscope
-from .models import QrCode, FamousQuoteLucky, WisdomLucky, ElementLucky
+from .models import QrCode, FamousQuoteLucky, WisdomLucky, ElementLucky, HoroscopeLucky
 from random import choice
 from django.http import Http404
 
@@ -31,7 +32,8 @@ class QRCodeDetailView(DetailView):
         }
 
         if lucky_type == 'quote':
-            template = 'core/display/quote_lucky.html'
+            print('clicked')
+            template = 'core/display/display.html'
             context.update({
                 'content': qr_code.linked_lucky.content,
                 'author': qr_code.linked_lucky.author,
@@ -40,7 +42,7 @@ class QRCodeDetailView(DetailView):
             })
 
         elif lucky_type == 'wisdom':
-            template = 'core/display/wisdom_lucky.html'
+            template = 'core/display/display.html'
             context.update({
                 'content': qr_code.linked_lucky.content,
                 'zodiac_sign': zodiac_signs_bg[qr_code.linked_lucky.zodiac_sign],
@@ -51,7 +53,7 @@ class QRCodeDetailView(DetailView):
             elements_bg = {
                 'Fire': 'Огън', 'Earth': 'Земя', 'Air': 'Въздух', 'Water': 'Вода'
             }
-            template = 'core/display/element_lucky.html'
+            template = 'core/display/display.html'
             context.update({
                 'content': qr_code.linked_lucky.content,
                 'element': elements_bg[qr_code.linked_lucky.element],
@@ -60,35 +62,29 @@ class QRCodeDetailView(DetailView):
 
 
         elif lucky_type == 'horoscope':
-            if qr_code.scanned:
-                template = 'core/display/horoscope_limit.html'
-                context.update({
-                    'message': 'Този QR код вече е използван за хороскоп. Моля, изтеглете ново късметче.',
-                })
 
-            else:
-                template = 'core/display/horoscope_lucky.html'
-                qr_code.scanned = True
-                qr_code.save()
+            horoscope_type_map = {
+                'Daily': 'дневен',
+                'Weekly': 'седмичен',
+                'monthly': 'месечен',
+            }
 
-                json_response = {}
+            template = 'core/display/display.html'
+            # months_bg = [
+            #     "", "Януари", "Февруари", "Март", "Април", "Май", "Юни",
+            #     "Юли", "Август", "Септември", "Октомври", "Ноември", "Декември"
+            # ]
+            # month_name_bg = months_bg[qr_code.linked_lucky.month_date.month] if qr_code.linked_lucky.month_date else ""
 
-                if qr_code.horoscope_data['horoscope_type'] == 'daily':
-                    json_response = get_daily_horoscope(qr_code.horoscope_data['zodiac_sign'])
-
-                elif qr_code.horoscope_data['horoscope_type'] == 'weekly':
-                    json_response = get_weekly_horoscope(qr_code.horoscope_data['zodiac_sign'])
-
-                elif qr_code.horoscope_data['horoscope_type'] == 'monthly':
-                    json_response = get_monthly_horoscope(qr_code.horoscope_data['zodiac_sign'])
-
-                print(translate_to_bulgarian(json_response['horoscope_data']))
-
-                context.update({
-                    'message': 'this is the horoscope',
-                    'zodiq': qr_code.horoscope_data['zodiac_sign'],
-                    'horoskop': qr_code.horoscope_data['horoscope_type'],
-                })
+            context.update({
+                'content': qr_code.linked_lucky.content,
+                'zodiac_sign': zodiac_signs_bg[qr_code.linked_lucky.zodiac_sign],
+                'zodiac_sign_eng': qr_code.linked_lucky.zodiac_sign,
+                'horoscope_type': horoscope_type_map[qr_code.linked_lucky.horoscope_type],
+                'monday_date': qr_code.linked_lucky.monday_date,
+                'sunday_date': qr_code.linked_lucky.sunday_date,
+                'today_date': today(),
+            })
 
         else:
             template = 'core/luckies.html'
@@ -141,18 +137,14 @@ class QRCodeDetailView(DetailView):
 
 
 
+
             elif lucky_type == 'horoscope':
-                qr_code.linked_lucky_type = 'horoscope'
-
-                qr_code.horoscope_data = {
-                    'zodiac_sign': form.cleaned_data['zodiac_sign'],
-                    'horoscope_type': form.cleaned_data['horoscope_type'],
-                }
-
-                qr_code.save()
-
-                # Call show_lucky to display the horoscope message
-                return self.show_lucky(qr_code)
+                horoscope_type = form.cleaned_data['horoscope_type']
+                print(horoscope_type)
+                lucky_messages = HoroscopeLucky.objects.filter(
+                    zodiac_sign=zodiac_sign,
+                    horoscope_type=horoscope_type.capitalize()
+                )
 
             else:
                 raise Http404("Lucky type not found.")

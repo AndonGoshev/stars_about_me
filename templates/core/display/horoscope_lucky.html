@@ -1,13 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>this is the page for lucky horoscope</h1>
-<p>{{ horoscope_content }}</p>
-<p>{{ zodiq }}</p>
-<p>{{ horoskop }}</p>
-</body>
-</html>
+{% load static %}
+
+<div class="display-inner-ct">
+
+    <div class="sign-ct"><img class="sign-circle" src="{% static 'images/sign-circle.png' %}"><img src="{% static 'images/' %}{{ zodiac_sign_eng|lower }}.png" alt="{{ zodiac_sign }}">
+    </div>
+
+    <div class="horoscope-type-ct">
+    
+        {% if horoscope_type == 'дневен' %}
+            
+            <p>Дневен хороскоп за {{ zodiac_sign }}</p>
+            <p class="horoscope-date">( {{ today_date|date:"d.m"  }} )</p>
+            
+        {% elif horoscope_type == 'седмичен' %}
+        
+            <p>Седмичен хороскоп за {{ zodiac_sign }}</p>
+            <p class="horoscope-date">( {{ monday_date|date:"d.m"  }} - {{ sunday_date|date:"d.m"  }} )</p>
+        
+        {% endif %}
+    
+    </div>
+
+    <div class="content-ct">
+
+        <h2 class="content horoscope-content">{{ content }}</h2>
+
+    </div>
+
+</div>
+

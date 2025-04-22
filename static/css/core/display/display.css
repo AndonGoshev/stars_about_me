@@ -1,0 +1,123 @@
+#display-wrapper {
+    position: relative;
+    padding: 1em 0 0.5em 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*background-color: #EBDECC;*/
+    gap: 2em;
+
+/*background: #EBDECC;*/
+/*background: linear-gradient(259deg, rgba(235, 222, 204, 1) 1%, rgba(212, 203, 190, 1) 100%);*/
+
+background: #EBDECC;
+background: linear-gradient(259deg, rgba(235, 222, 204, 1) 0%, rgba(224, 212, 193, 1) 100%);
+}
+
+.small-star {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    width: 2em;
+    opacity: 0.8;
+}
+
+.container-shape {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+}
+
+#display-logo-ct {
+    z-index: 10;
+    width: 40%;
+    opacity: 1;
+}
+
+#display-logo-ct img {
+    width: 100%;
+}
+
+.sign-ct {
+    position: relative;
+    width: 2.8em;
+    height: 2.8em;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+}
+
+.sign-ct img:not(.sign-circle) {
+    width: 60%;
+    height: 60%;
+    object-fit: cover;
+}
+
+.sign-circle {
+    position: absolute;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    left: 49%;
+    width: 128%;
+    height: 120%;
+    opacity: 0.8;
+}
+
+.display-inner-ct {
+    z-index: 10;
+    padding: 1em;
+    width: 90%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+}
+
+.content-ct {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.content {
+    color: #404040;
+    font-size: 1.2em;
+    font-weight: 400;
+}
+.horoscope-content {
+    font-size: 1em;
+    /*font-weight: 350;*/
+}
+
+.short-content {
+    text-align: center;
+}
+
+.reference-ct {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.reference {
+    font-size: 1em;
+}
+
+.horoscope-type-ct {
+    text-align: center;
+    /*font-size: 0.9em;*/
+}
+
+.horoscope-date {
+    font-size: 0.9em;
+}

@@ -29,10 +29,10 @@
 
 <div class="site">
 
-    {#    <video autoplay muted loop id="bg-video">#}
-    {#        <source src="{% static 'images/bg-video1.mp4' %}" type="video/mp4">#}
-    {#        Your browser does not support the video tag.#}
-    {#    </video>#}
+    {#        <video autoplay muted loop id="bg-video">#}
+    {#            <source src="{% static 'images/bg-video1.mp4' %}" type="video/mp4">#}
+    {#            Your browser does not support the video tag.#}
+    {#        </video>#}
 
     <header>
 
@@ -64,13 +64,15 @@
 
 <style>
 
-    .site {
-        position: relative;
-        background-image: url("{% static 'images/main-bg1.png' %}");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        opacity: 0.95;
+    {#body {#}
+    {#    position: relative;#}
+    {#    background-image: url("{% static 'images/main-bg1.png' %}");#}
+    {#    background-attachment: fixed;#}
+    {#    background-position: center;#}
+    {#    background-size: cover;#}
+    {#    background-repeat: no-repeat;#}
+    {#    opacity: 1;;#}
+
 
         #bg-video {
             position: fixed;
